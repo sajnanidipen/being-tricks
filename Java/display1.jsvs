@@ -1,0 +1,9 @@
+import java.io.*;
+import java.util.*;
+public class display1{
+public static void main(String args[]){
+for(int i=97;i<=122;i++){
+char b=char(i);
+System.out.println(b);
+}
+}
