@@ -619,7 +619,7 @@ begin
 		if(mod(num100,2)=0)then
 			return 'even';
 		else
-		return 'odd';
+			return 'odd';
 		end if;
 	end if;
 end;
@@ -647,3 +647,89 @@ select :checker from dual;
 select * from func;
 
 
+==============================================
+
+#Simple Interest simple
+
+declare
+p number:=&p;
+n number:=&n;
+r number:=&r;
+si number;
+begin
+si:=(p*n*r)/100;
+dbms_output.put_line('Simple Interest is:'||si);
+end;
+.
+/
+
+===========================================
+
+#swapping
+
+declare
+a number:=&a;
+b number:=&b;
+c number;
+begin
+dbms_output.put_line('Value of a before swapping is:'||a);
+dbms_output.put_line('Value of b before swapping is:'||b);
+c:=a;
+a:=b;
+b:=c;
+dbms_output.put_line('Value of a after swapping is:'||a);
+dbms_output.put_line('Value of b after swapping is:'||b);
+end;
+.
+/
+
+===================================
+
+#swapping using function
+
+create or replace procedure swap1(a in number, b in number, c out number)is
+begin
+dbms_output.put_line('Value of a before swapping is:'||a);
+dbms_output.put_line('Value of b before swapping is:'||b);
+c:=a;
+a:=b;
+b:=c;
+dbms_output.put_line('Value of a after swapping is:'||a);
+dbms_output.put_line('Value of b after swapping is:'||b);
+end;
+.
+/
+
+^^^^^^^^ Not Working getting an error....
+
+
+=========================================
+
+#procedure to execute add/sub using case
+
+create or replace procedure calc1(op varchar2,a in number,b in number) is
+c number;
+begin
+case op
+when 'add' then
+c:=a+b;
+when 'sub' then
+c:=a-b;
+when 'multiply' then
+c:=a*b;
+when 'divide' then
+c:=a/b;
+else
+dbms_output.put_line('Invalid Choice');
+end case;
+dbms_output.put_line(c);
+end;
+.
+/
+
+===================================
+
+
+
+
+	
